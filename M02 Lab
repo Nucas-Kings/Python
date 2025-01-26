@@ -1,0 +1,39 @@
+# Author: Akinseye Emmanuel
+# File Name: student_gpa_checker.py
+# Description: This app accepts student names and GPAs, tests if the student qualifies for the Dean's List or the Honor Roll, and displays appropriate messages.
+
+def main():
+    print("Welcome to the Student GPA Checker!")
+    print("Enter 'ZZZ' as the last name to quit.")
+
+    while True:
+        # Accept the student's last name
+        last_name = input("\nEnter the student's last name: ")
+        if last_name.upper() == "ZZZ":
+            print("Exiting the program. Goodbye!")
+            break
+
+        # Accept the student's first name
+        first_name = input("Enter the student's first name: ")
+
+        # Accept the student's GPA and handle invalid inputs
+        try:
+            gpa = float(input("Enter the student's GPA (0.0 - 4.0): "))
+            if gpa < 0.0 or gpa > 4.0:
+                print("Invalid GPA. Please enter a value between 0.0 and 4.0.")
+                continue
+        except ValueError:
+            print("Invalid input. Please enter a numeric value for GPA.")
+            continue
+
+        # Check if the student qualifies for the Dean's List or Honor Roll
+        if gpa >= 3.5:
+            print(f"{first_name} {last_name} has made the Dean's List!")
+        elif gpa >= 3.25:
+            print(f"{first_name} {last_name} has made the Honor Roll!")
+        else:
+            print(f"{first_name} {last_name} does not qualify for the Dean's List or Honor Roll.")
+
+# Run the app
+if __name__ == "__main__":
+    main()
