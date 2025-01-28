@@ -1,0 +1,56 @@
+# Exercise 3.1: Calculate the number of seconds in an hour
+seconds_per_minute = 60
+minutes_per_hour = 60
+seconds_per_hour = seconds_per_minute * minutes_per_hour
+print(f"Seconds in an hour: {seconds_per_hour}")
+
+# Exercise 3.2: Assign the result to a variable called seconds_per_hour
+# (This was already done in the previous step)
+
+# Exercise 3.3: Calculate the number of seconds in a day using seconds_per_hour
+hours_per_day = 24
+seconds_per_day = seconds_per_hour * hours_per_day
+print(f"Seconds in a day: {seconds_per_day}")
+
+# Exercise 3.4: Save the result in a variable called seconds_per_day
+# (This was already done in the previous step)
+
+# Exercise 3.5: Divide seconds_per_day by seconds_per_hour using floating-point division
+floating_point_division = seconds_per_day / seconds_per_hour
+print(f"Floating-point division: {floating_point_division}")
+
+# Exercise 3.6: Divide seconds_per_day by seconds_per_hour using integer division
+integer_division = seconds_per_day // seconds_per_hour
+print(f"Integer division: {integer_division}")
+
+# Exercise 6.1: Use a for loop to print the values of the list [3, 2, 1, 0]
+for value in [3, 2, 1, 0]:
+    print(value)
+
+# Exercise 6.2: While loop to compare number with guess_me
+guess_me = 7
+number = 1
+
+while True:
+    if number < guess_me:
+        print('too low')
+    elif number == guess_me:
+        print('found it!')
+        break
+    else:
+        print('oops')
+        break
+    number += 1
+
+# Exercise 6.3: For loop to iterate over range(10) and compare with guess_me
+guess_me = 5
+
+for number in range(10):
+    if number < guess_me:
+        print('too low')
+    elif number == guess_me:
+        print('found it!')
+        break
+    else:
+        print('oops')
+        break
