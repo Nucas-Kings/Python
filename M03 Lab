@@ -1,0 +1,48 @@
+# ========================================
+# Vehicle Information System
+# Author: Akinseye Emmanuel
+# Date: 01-03-2025
+# Description: This program collects and displays 
+# automobile details using OOP principles in Python.
+# ========================================
+
+class Vehicle:
+    """Superclass representing a generic vehicle."""
+    def __init__(self, vehicle_type):
+        self.vehicle_type = vehicle_type
+
+class Automobile(Vehicle):
+    """Subclass representing an automobile, inheriting from Vehicle."""
+    def __init__(self, vehicle_type, year, make, model, doors, roof):
+        super().__init__(vehicle_type)
+        self.year = year
+        self.make = make
+        self.model = model
+        self.doors = doors
+        self.roof = roof
+
+    def display_info(self):
+        """Displays automobile details in a readable format."""
+        print("\n===== Vehicle Information =====")
+        print(f"  Vehicle Type: {self.vehicle_type}")
+        print(f"  Year: {self.year}")
+        print(f"  Make: {self.make}")
+        print(f"  Model: {self.model}")
+        print(f"  Number of doors: {self.doors}")
+        print(f"  Type of roof: {self.roof}")
+
+# Taking user input
+print("===== Enter details for your car =====")
+
+vehicle_type = "Car"  # Since the assignment specifies only cars
+year = input("Enter the Year: ")
+make = input("Enter the Make (e.g., Toyota, Honda): ")
+model = input("Enter the Model: ")
+doors = input("Enter the Number of doors (2 or 4): ")
+roof = input("Enter the Type of roof (solid or sun roof): ")
+
+# Creating an instance of Automobile
+car = Automobile(vehicle_type, year, make, model, doors, roof)
+
+# Display the entered information
+car.display_info()
