@@ -1,0 +1,71 @@
+"""
+===========================================
+Python Exercises: Chapter 7 - Things to Do
+===========================================
+Name: Akinseye Emmanuel
+Date: February 3, 2025
+Description: This script completes the exercises from Chapter 7, 
+             covering lists, tuples, string manipulations, 
+             and list comprehensions.
+===========================================
+"""
+
+# 7.1 Create a list of years from birth year to fifth birthday
+birth_year = 2000  # Change this to your birth year
+years_list = [birth_year + i for i in range(6)]
+print("Years List:", years_list)
+
+# 7.2 The year of the third birthday
+third_birthday_year = years_list[3]
+print("Third Birthday Year:", third_birthday_year)
+
+# 7.3 The year when you were the oldest in the list
+oldest_year = years_list[-1]
+print("Oldest Year:", oldest_year)
+
+# 7.4 Create a list called things
+things = ["mozzarella", "cinderella", "salmonella"]
+print("Things List:", things)
+
+# 7.5 Capitalize the element referring to a person
+things[1] = things[1].capitalize()
+print("Updated Things List:", things)  # The original list is modified
+
+# 7.6 Make the cheesy element uppercase
+things[0] = things[0].upper()
+print("Cheesy Things List:", things)
+
+# 7.7 Delete the disease element
+things.remove("salmonella")
+print("Cleaned Things List:", things)
+
+# 7.8 Create a list called surprise
+surprise = ["Groucho", "Chico", "Harpo"]
+print("Surprise List:", surprise)
+
+# 7.9 Lowercase, reverse, and capitalize the last element of surprise
+surprise[-1] = surprise[-1].lower()[::-1].capitalize()
+print("Updated Surprise List:", surprise)
+
+# 7.10 List comprehension to get even numbers from range(10)
+even = [num for num in range(10) if num % 2 == 0]
+print("Even Numbers List:", even)
+
+# 7.11 Jump rope rhyme generator
+start1 = ["fee", "fie", "foe"]
+rhymes = [
+    ("flop", "get a mop"),
+    ("fope", "turn the rope"),
+    ("fa", "get your ma"),
+    ("fudge", "call the judge"),
+    ("fat", "pet the cat"),
+    ("fog", "walk the dog"),
+    ("fun", "say we're done"),
+]
+start2 = "Someone better"
+
+# Generate rhymes
+for first, second in rhymes:
+    print(" ".join([word.capitalize() + "!" for word in start1]) + " " + first.capitalize() + "!")
+    print(start2, second + ".")
+
