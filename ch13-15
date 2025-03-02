@@ -1,0 +1,53 @@
+# Function to read and print a file line by line
+def read_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            for line in file:
+                print(line.strip())
+    except FileNotFoundError:
+        print("File not found.")
+
+# Example usage (Ensure 'example.txt' exists in the working directory)
+read_file('example.txt')
+
+# Writing names to a file
+names = ["Alice", "Bob", "Charlie", "David"]
+filename = "names.txt"
+
+with open(filename, 'w') as file:
+    for name in names:
+        file.write(name + "\n")
+
+# Reading the file and printing line numbers
+with open(filename, 'r') as file:
+    for index, line in enumerate(file, start=1):
+        print(f"{index}: {line.strip()}")
+
+# Appending a new name to the file
+with open(filename, 'a') as file:
+    file.write("Eve\n")
+
+# Reading the updated file
+with open(filename, 'r') as file:
+    for index, line in enumerate(file, start=1):
+        print(f"{index}: {line.strip()}")
+
+import multiprocessing
+import time
+import random
+from datetime import datetime
+
+def worker():
+    wait_time = random.uniform(0, 1)
+    time.sleep(wait_time)
+    print(f"Process {multiprocessing.current_process().name} finished at {datetime.now().strftime('%H:%M:%S')}")
+
+if __name__ == "__main__":
+    processes = []
+    for i in range(3):
+        process = multiprocessing.Process(target=worker, name=f'Worker-{i+1}')
+        processes.append(process)
+        process.start()
+    
+    for process in processes:
+        process.join()
