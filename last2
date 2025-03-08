@@ -1,0 +1,55 @@
+from django.shortcuts import render
+  from .models import Post
+
+  def post_list(request):
+      posts = Post.objects.all()
+      return render(request, 'blog/post_list.html', {'posts': posts})
+
+
+  {% for post in posts %}
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+  {% endfor %}
+
+
+
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>{% block title %}My Site{% endblock %}</title>
+      {% block head %}
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      {% endblock %}
+  </head>
+  <body>
+      <header>
+          <!-- Navigation and branding -->
+      </header>
+      <main>
+          {% block content %}{% endblock %}
+      </main>
+      <footer>
+          <!-- Footer content -->
+      </footer>
+  </body>
+  </html>
+
+
+
+  {% extends 'base.html' %}
+
+  {% block title %}Blog Posts{% endblock %}
+
+  {% block content %}
+      {% for post in posts %}
+          <article>
+              <h2>{{ post.title }}</h2>
+              <p>{{ post.content }}</p>
+          </article>
+      {% endfor %}
+  {% endblock %}
